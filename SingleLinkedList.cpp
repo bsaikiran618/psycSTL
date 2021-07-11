@@ -7,24 +7,21 @@ template <typename dataType>
 SLL_Node<dataType>::SLL_Node()
 :next(NULL)
 {
-	
 }
 
 template <typename dataType>
 SLL_Node<dataType>::SLL_Node(SLL_Node<dataType> *nextVal)
 :next(nextVal)
 {
-	
 }
 
 template <typename dataType>
 SLL_Node<dataType>::SLL_Node(SLL_Node<dataType> *nextVal, dataType dataVal)
 :next(nextVal), data(dataVal)
 {
-	
 }
 
-//SLL Default constructor
+//SLL Constructors
 template <typename dataType>
 SLL<dataType>::SLL()
 {
@@ -32,7 +29,6 @@ SLL<dataType>::SLL()
 	listLength = 0;
 }
 
-//SLL Parameterized Constructor
 template <typename dataType>
 SLL<dataType>::SLL(dataType val)
 {
@@ -40,7 +36,6 @@ SLL<dataType>::SLL(dataType val)
 	this->listLength = 1;
 }
 
-//SLL Copy Constructor
 template <typename dataType>
 SLL<dataType>::SLL(SLL<dataType> &firstList)
 {
@@ -65,6 +60,8 @@ SLL<dataType>::SLL(SLL<dataType> &firstList)
 	}
 }
 
+
+//Insert node at the end
 template <typename dataType>
 int SLL<dataType>::insertBack(dataType val)
 {
@@ -84,6 +81,7 @@ int SLL<dataType>::insertBack(dataType val)
 	return 0;
 }
 
+//Insert node at the beginning
 template <typename dataType>
 int SLL<dataType>::insertFront(dataType val)
 {
@@ -99,6 +97,7 @@ int SLL<dataType>::insertFront(dataType val)
 	return 0;
 }
 
+//Insert node at a position
 template <typename dataType>
 int SLL<dataType>::insertAt(uint8_t pos, dataType val)
 {
@@ -125,7 +124,7 @@ int SLL<dataType>::insertAt(uint8_t pos, dataType val)
 	}
 }
 
-
+//Delete the first node
 template <typename dataType>
 int SLL<dataType>::deleteFront()
 {
@@ -149,6 +148,7 @@ int SLL<dataType>::deleteFront()
 }
 
 
+//Delete the last node
 template <typename dataType>
 int SLL<dataType>::deleteBack()
 {
@@ -171,6 +171,7 @@ int SLL<dataType>::deleteBack()
 	return 0;
 }
 
+//Delete the node at a certain position
 template <typename dataType>
 int SLL<dataType>::deleteAt(uint8_t pos)
 {
@@ -205,6 +206,7 @@ int SLL<dataType>::deleteAt(uint8_t pos)
 	return 0;
 }
 
+//Show the linked list
 template <typename dataType>
 void SLL<dataType>::display()
 {
@@ -216,5 +218,5 @@ void SLL<dataType>::display()
 			std::cout << "->";
 		current = current->next;
 	}
-	std::cout << std::endl;
+	std::cout << "END" <<  std::endl;
 }
