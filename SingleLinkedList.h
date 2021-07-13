@@ -30,6 +30,7 @@ class SLL
 		int deleteFront();
 		int deleteBack();
 		int deleteAt(uint8_t pos);
+		void reverse();
 		SLL_Node<dataType> * getHead()const{return this->head;}
 		uint8_t getLength()const{return this->listLength;}
 		void display();

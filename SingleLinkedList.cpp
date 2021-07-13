@@ -220,3 +220,25 @@ void SLL<dataType>::display()
 	}
 	std::cout << "END" <<  std::endl;
 }
+
+//reverse the linked list
+template <typename dataType>
+void SLL<dataType>::reverse()
+{
+	if(this->head)
+	{
+		SLL<dataType> *first, *second;
+		first = this->head;
+		second = first->next;
+
+		while(second != NULL)
+		{
+			SLL<dataType> *temp = second->next;
+			second->next = first;
+			first = second;
+			second = temp;
+		}
+
+		this->head = first;
+	}
+}
