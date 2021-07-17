@@ -1,5 +1,6 @@
 #include "SinglyLinkedList.h"
 #include <stdlib.h>
+#include <string>
 #include <iostream>
 
 //SLL_Node Constructors
@@ -99,7 +100,7 @@ int SLL<dataType>::insertFront(dataType val)
 
 //Insert node at a position
 template <typename dataType>
-int SLL<dataType>::insertAt(uint8_t pos, dataType val)
+int SLL<dataType>::insertAt(uint32_t pos, dataType val)
 {
 	if(pos > this->listLength || pos < 0)
 	{
@@ -111,7 +112,7 @@ int SLL<dataType>::insertAt(uint8_t pos, dataType val)
 	else
 	{
 		SLL_Node<dataType> *current = this->head;
-		uint8_t currentPos = 0;
+		uint32_t currentPos = 0;
 
 		while(currentPos < (pos - 1))
 		{
@@ -173,7 +174,7 @@ int SLL<dataType>::deleteBack()
 
 //Delete the node at a certain position
 template <typename dataType>
-int SLL<dataType>::deleteAt(uint8_t pos)
+int SLL<dataType>::deleteAt(uint32_t pos)
 {
 	if(this->head)
 	{
@@ -188,7 +189,7 @@ int SLL<dataType>::deleteAt(uint8_t pos)
 		{
 			SLL_Node<dataType> *prev = this->head;
 			SLL_Node<dataType> *current = this->head;
-			uint8_t currentPos = 0;
+			uint32_t currentPos = 0;
 
 			while(currentPos < (pos))
 			{
@@ -241,4 +242,20 @@ void SLL<dataType>::reverse()
 
 		this->head = first;
 	}
+}
+
+//read the value at a position
+template <typename dataType>
+dataType SLL<dataType>::readAt(uint32_t position)
+{
+	if(position > this->listLength || position < 0)
+		throw new SLL<dataType>::invalidAccessError("Position out of bounds");
+
+	uint32_t currentPos = 0;
+	SLL<dataType> * current = this->head;
+
+	while(currentPos < position)
+		current = current->next;
+	
+	return *current;
 }
